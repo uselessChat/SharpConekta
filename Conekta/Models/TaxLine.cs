@@ -11,6 +11,7 @@ namespace Conekta.Models
         public string Description { get; set; }
         [JsonProperty("amount")]
         public int Amount { get; set; }
+
         [JsonProperty("metadata")]
         public object Metadata { get; set; }
     }

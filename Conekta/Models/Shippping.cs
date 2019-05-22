@@ -47,6 +47,7 @@ namespace Conekta.Models
         public string Method { get; set; }
         [JsonProperty("tracking_number")]
         public string Tracking { get; set; }
+
         [JsonProperty("metadata")]
         public object Metadata { get; set; }
     }
