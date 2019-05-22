@@ -20,4 +20,18 @@ namespace Conekta.Models
         [JsonProperty("postal_code")]
         public string ZipCode { get; set; }
     }
+
+    public class ShippingContact
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+        [JsonProperty("address")]
+        public ShipppingAddress Address { get; set; }
+        [JsonProperty("between_streets")]
+        public string BetweenStreets { get; set; }
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+        [JsonProperty("receiver")]
+        public string Receiver { get; set; }
+    }
 }
