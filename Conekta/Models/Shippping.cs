@@ -34,4 +34,26 @@ namespace Conekta.Models
         [JsonProperty("receiver")]
         public string Receiver { get; set; }
     }
+
+    public class ShippingLine
+    {
+        [JsonProperty("id")]
+        public string Id { get; set; }
+        [JsonProperty("amount")]
+        public int Amount { get; set; }
+        [JsonProperty("carrier")]
+        public string Carrier { get; set; }
+        [JsonProperty("method")]
+        public string Method { get; set; }
+        [JsonProperty("tracking_number")]
+        public string Tracking { get; set; }
+        [JsonProperty("metadata")]
+        public object Metadata { get; set; }
+    }
+
+    public class ShippingLine<T> : ShippingLine
+    {
+        [JsonProperty("metadata")]
+        public new T Metadata { get; set; }
+    }
 }
