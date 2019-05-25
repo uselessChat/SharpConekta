@@ -4,38 +4,68 @@ using Newtonsoft.Json;
 
 namespace Conekta.Models
 {
+    /// <summary>
+    /// Represents the Line Items in the order
+    /// </summary>
     public class LineItem
     {
+        /// <summary>
+        /// Unique identifier for the line item
+        /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; }
 
+        /// <summary>
+        /// Line item's brand
+        /// </summary>
         [JsonProperty("brand")]
         public string Brand { get; set; }
 
+        /// <summary>
+        /// Short description of the item (<250)
+        /// </summary>
         [JsonProperty("description")]
         public string Description { get; set; }
 
+        /// <summary>
+        /// The Storage Keeping Unit designated by the company
+        /// </summary>
         [JsonProperty("sku")]
         public string SKU { get; set; }
 
+        /// <summary>
+        /// Line item's name
+        /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
 
         [JsonProperty("parent_id")]
         public string OrderId { get; set; }
 
+        /// <summary>
+        /// Line item's quantity for the order
+        /// </summary>
         [JsonProperty("quantity")]
         public int Quantity { get; set; }
 
-        //[JsonProperty("tags")]
-        //public IEnumerable<string> Tags { get; set; }
+        /// <summary>
+        /// Array containing the line item's categories
+        /// </summary>
+        [JsonProperty("tags")]
+        public IEnumerable<string> Tags { get; set; }
 
+        /// <summary>
+        /// Line item's price in cents
+        /// </summary>
         [JsonProperty("unit_price")]
         public int UnitPrice { get; set; }
 
         [JsonProperty("object")]
         public string Object { get; set; }
 
+        /// <summary>
+        /// Hash containing additional information related to the line item
+        /// </summary>
         [JsonProperty("metadata")]
         public object Metadata { get; set; }
 
@@ -45,6 +75,9 @@ namespace Conekta.Models
 
     public class LineItem<T> : LineItem
     {
+        /// <summary>
+        /// Hash containing additional information related to the line item
+        /// </summary>
         [JsonProperty("metadata")]
         public new T Metadata { get; set; }
     }
