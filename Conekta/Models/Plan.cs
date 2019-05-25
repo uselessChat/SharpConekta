@@ -25,7 +25,7 @@ namespace Conekta.Models
         /// Timestamp of plan's creation
         /// </summary>
         [JsonProperty("created_at")]
-        public long CreatedAt { get; set; }
+        public long? CreatedAt { get; set; }
 
         /// <summary>
         /// Currency of the charge. A 3-letter code of the International Standard ISO 4217
@@ -41,7 +41,7 @@ namespace Conekta.Models
         /// For example, to charge a customer every 2 months, set the interval attribute to month and the frequency to 2.
         /// </summary>
         [JsonProperty("frequency")]
-        public int Frequency { get; set; }
+        public int? Frequency { get; set; }
 
         /// <summary>
         /// The interval for the charge.
@@ -66,13 +66,13 @@ namespace Conekta.Models
         /// Number of charges that will be made before the subscription expires
         /// </summary>
         [JsonProperty("expiry_count")]
-        public int TotalChargesUntilExpiration { get; set; }
+        public int? TotalChargesUntilExpiration { get; set; }
 
         /// <summary>
         /// Days of the trial's duration
         /// </summary>
         [JsonProperty("trial_period_days")]
-        public int TrialPeriodDays { get; set; }
+        public int? TrialPeriodDays { get; set; }
 
         /// <summary>
         /// Object class. For this object "plan"
