@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Conekta.Models
 {
-    public class Address
+    public class BillingAddress
     {
         [JsonProperty("city")]
         public string City { get; set; }

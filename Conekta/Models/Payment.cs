@@ -59,7 +59,7 @@ namespace Conekta.Models
         /// Address of the cardholder
         /// </summary>
         [JsonProperty("address")]
-        public Address Address { get; set; }
+        public BillingAddress Address { get; set; }
 
         /// <summary>
         /// Card's brand
@@ -187,7 +187,7 @@ namespace Conekta.Models
             /// Address of the cardholder
             /// </summary>
             [JsonProperty("address")]
-            public Address Address { get; set; }
+            public BillingAddress Address { get; set; }
         }
     }
 }
