@@ -22,28 +22,9 @@ namespace Conekta.Api
 
         protected string Segment { get; set; }
 
-        //public string Host { get; set; }
+        public string Host { get; set; }
 
-        public IFlurlRequest Request
-        {
-            get
-            {
-                var bytesKey = System.Text.Encoding.UTF8.GetBytes(Configuration.Key);
-                string token = System.Convert.ToBase64String(bytesKey);
-                string userAgent = JsonConvert.SerializeObject(UserAgent);
-
-                return Configuration.Host
-                    .AppendPathSegment(Segment)
-                    .WithHeaders(new Dictionary<string, string>
-                    {
-                        { "Accept", $"application/vnd.conekta-v{Configuration.Version}+json" },
-                        { "Accept-Language", Configuration.Locale },
-                        { "Authorization", $"Basic {token}" },
-                        { "UserAgent", $"Conekta/v1 DotNetBindings10/Conekta::{Configuration.Version}" },
-                        { "X-Conekta-Client-User-Agent", userAgent }
-                    });
-            }
-        }
+        public IFlurlRequest Request => Configuration.Host.AppendPathSegment(Segment).WithHeaders(Headers);
 
         public static void Initialize(Configuration configuration)
         {
@@ -57,6 +38,25 @@ namespace Conekta.Api
                 };
                 settings.JsonSerializer = new NewtonsoftJsonSerializer(jsonSettings);
             });
+        }
+
+        protected Dictionary<string, string> Headers
+        {
+            get
+            {
+                var bytesKey = System.Text.Encoding.UTF8.GetBytes(Configuration.Key);
+                string token = System.Convert.ToBase64String(bytesKey);
+                string userAgent = JsonConvert.SerializeObject(UserAgent);
+
+                return new Dictionary<string, string>
+                {
+                    { "Accept", $"application/vnd.conekta-v{Configuration.Version}+json" },
+                    { "Accept-Language", Configuration.Locale },
+                    { "Authorization", $"Basic {token}" },
+                    { "UserAgent", $"Conekta/v1 DotNetBindings10/Conekta::{Configuration.Version}" },
+                    { "X-Conekta-Client-User-Agent", userAgent }
+                };
+            }
         }
     }
 }
