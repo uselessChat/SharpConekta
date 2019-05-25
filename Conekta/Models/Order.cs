@@ -59,8 +59,8 @@ namespace Conekta.Models
         [JsonProperty("shipping_lines")]
         public Pagination<ShippingLine> ShippingLines { get; set; }
 
-        //[JsonProperty("tax_lines")]
-        //public IEnumerable<TaxLine> TaxLines { get; set; }
+        [JsonProperty("tax_lines")]
+        public IEnumerable<TaxLine> TaxLines { get; set; }
 
         [JsonProperty("updated_at")]
         public long UpdatedAt { get; set; }
