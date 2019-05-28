@@ -28,6 +28,18 @@ namespace Conekta.Models
         [JsonProperty("between_streets")]
         public string BetweenStreets { get; set; }
 
+        [JsonProperty("created_at")]
+        public long? CreatedAt { get; set; }
+
+        [JsonProperty("default")]
+        public bool Default { get; set; }
+
+        /// <summary>
+        /// Customer || Order
+        /// </summary>
+        [JsonProperty("parent_id")]
+        public string ParentId { get; set; }
+
         /// <summary>
         /// Contact's phone number
         /// </summary>
@@ -39,5 +51,8 @@ namespace Conekta.Models
         /// </summary>
         [JsonProperty("receiver")]
         public string Receiver { get; set; }
+
+        [JsonProperty("object")]
+        public string Object { get; set; }
     }
 }

@@ -41,8 +41,8 @@ namespace Conekta.Models
         [JsonProperty("customer_info")]
         public OrderCustomer Customer { get; set; }
 
-        //[JsonProperty("discount_lines")]
-        //public IEnumerable<DiscountLine> DiscountLines { get; set; }
+        [JsonProperty("discount_lines")]
+        public Pagination<DiscountLine> DiscountLines { get; set; }
 
         [JsonProperty("line_items")]
         public Pagination<LineItem> LineItems { get; set; }
@@ -87,6 +87,9 @@ namespace Conekta.Models
 
     public class Order<L, S, T> : Order
     {
+        [JsonProperty("discount_lines")]
+        public new IEnumerable<DiscountLine> DiscountLines { get; set; }
+
         [JsonProperty("line_items")]
         public new IEnumerable<LineItem<L>> LineItems { get; set; }
 
