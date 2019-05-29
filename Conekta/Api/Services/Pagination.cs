@@ -10,7 +10,7 @@ namespace Conekta.Api
     {
         public Task<T> SearchPage<T>(string url)
         {
-            return url.WithHeaders(Headers).GetJsonAsync<T>();
+            return ExecuteAsync(() => url.WithHeaders(Headers).GetJsonAsync<T>());
         }
     }
 }

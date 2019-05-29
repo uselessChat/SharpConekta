@@ -19,8 +19,8 @@ namespace ConsoleApp
             var service = new Conekta.Api.Plan();
             var plan = new Conekta.Models.Plan
             {
-                Id = "gold-plan",
-                Name = "gold-plan",
+                Id = "gold-plan2",
+                Name = "gold-plan2",
                 Amount = 10000,
                 Currency = "MXN",
                 Interval = "month",
@@ -29,13 +29,25 @@ namespace ConsoleApp
                 TotalChargesUntilExpiration = 12
             };
 
+            try
+            {
+                var result = service.CreateAsync(plan).GetAwaiter().GetResult();
+            }
+            catch (Conekta.Models.ConektaException e)
+            {
+                throw e;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
             //var rsult = service
             //    .UpdateAsync<Conekta.Models.Plan.Update, Conekta.Models.Plan>("gold-plan", new Conekta.Models.Plan.Update { Name = "Gol Plan 3", Amount = 10003 })
             //    .GetAwaiter().GetResult();
 
-            var rsult = service
-                .DeleteAsync<Conekta.Models.Plan>("gold-plan")
-                .GetAwaiter().GetResult();
+            //var rsult = service
+            //    .DeleteAsync<Conekta.Models.Plan>("gold-plan")
+            //    .GetAwaiter().GetResult();
 
             Console.WriteLine("Hello World!");
             Console.ReadKey();

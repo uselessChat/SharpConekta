@@ -11,7 +11,7 @@ namespace Conekta.Api
         public Task<TResult> CreateAsync<TEntry, TResult>(TEntry data)
         {
             Segment = $"/tokens";
-            return Request.PostJsonAsync(new { card = data }).ReceiveJson<TResult>();
+            return ExecuteAsync(() => Request.PostJsonAsync(new { card = data }).ReceiveJson<TResult>());
         }
     }
 }

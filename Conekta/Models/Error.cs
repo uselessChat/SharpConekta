@@ -8,7 +8,9 @@ namespace Conekta.Models
 {
     public class ConektaException : Exception
     {
-        public ErrorDetail Error { get; set; }
+        public Event Event { get; set; }
+
+        public int HttpStatusCode => (int)(Event?.Type ?? default(ErrorType));
     }
 
     public class ErrorDetail

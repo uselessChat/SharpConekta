@@ -11,31 +11,31 @@ namespace Conekta.Api
         public Task<T> AllAsync<T>()
         {
             Segment = $"/plans";
-            return Request.GetJsonAsync<T>();
+            return ExecuteAsync(() =>  Request.GetJsonAsync<T>());
         }
 
         public Task<T> CreateAsync<T>(T data)
         {
             Segment = $"/plans";
-            return Request.PostJsonAsync(data).ReceiveJson<T>();
+            return ExecuteAsync(() =>  Request.PostJsonAsync(data).ReceiveJson<T>());
         }
 
         public Task<T> DeleteAsync<T>(string id)
         {
             Segment = $"/plans/{id}";
-            return Request.DeleteAsync().ReceiveJson<T>();
+            return ExecuteAsync(() =>  Request.DeleteAsync().ReceiveJson<T>());
         }
 
         public Task<T> FindAsync<T>(string id)
         {
             Segment = $"/plans/{id}";
-            return Request.GetJsonAsync<T>();
+            return ExecuteAsync(() =>  Request.GetJsonAsync<T>());
         }
 
         public Task<TResult> UpdateAsync<TEntry, TResult>(string id, TEntry data)
         {
             Segment = $"/plans/{id}";
-            return Request.PutJsonAsync(data).ReceiveJson<TResult>();
+            return ExecuteAsync(() =>  Request.PutJsonAsync(data).ReceiveJson<TResult>());
         }
     }
 }

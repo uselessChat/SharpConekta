@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
 using Flurl.Http.Configuration;
@@ -56,6 +57,27 @@ namespace Conekta.Api
                     { "UserAgent", $"Conekta/v1 DotNetBindings10/Conekta::{Configuration.Version}" },
                     { "X-Conekta-Client-User-Agent", userAgent }
                 };
+            }
+        }
+
+        public async Task<T> ExecuteAsync<T>(Func<Task<T>> action)
+        {
+            try
+            {
+                return await action?.Invoke();
+            }
+            catch (FlurlHttpException e)
+            {
+                try
+                {
+                    Models.Event @event = await e.GetResponseJsonAsync<Models.Event>();
+                    var exception = new Models.ConektaException { Event = @event };
+                    throw exception;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
     }

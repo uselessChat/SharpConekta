@@ -6,6 +6,7 @@ namespace Conekta.Enums
 {
     public enum ErrorType
     {
+        not_defines = 0,
         /// <summary>
         /// HTTP 500
         /// An unexpected error thrown by Conekta. And this error is catchable via ApiError class.
