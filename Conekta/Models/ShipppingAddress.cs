@@ -25,6 +25,7 @@ namespace Conekta.Models
         public string InternalNumber { get; set; }
 
         /// <summary>
+        /// (Optional)
         /// Boolean value that indicates whether it is a residential shipping andress.
         /// By default is taken as true 
         /// </summary>

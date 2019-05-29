@@ -1,47 +1,10 @@
 ﻿using System;
+using Conekta.Enums;
+using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
 {
-    public enum PaymentMethodType
-    {
-        Oxxo,
-        Oxxo_Cash
-    }
-
-    public class PaymentMethod
-    {
-        [JsonProperty("expires_at")]
-        public long? ExpiresAt { get; set; }
-
-        [JsonProperty("reference")]
-        public string Reference { get; set; }
-
-        [JsonProperty("service_name")]
-        public string Service { get; set; }
-
-        [JsonProperty("store_name")]
-        public string Store { get; set; }
-
-        [JsonProperty("type")]
-        public string Type { get; set; }
-
-        [JsonProperty("object")]
-        public string Object { get; set; }
-
-        public PaymentMethod() { }
-
-        public PaymentMethod(PaymentMethodType type)
-        {
-            Type = type.ToString().ToLower();
-        }
-    }
-
-    public enum PaymentSourceType
-    {
-        Card
-    }
-
     /// <summary>
     /// The Payment Source object describes a payment method.
     /// This can be online (card payments) or offline OXXO and SPEI.
@@ -74,6 +37,7 @@ namespace Conekta.Models
         public long? CreatedAt { get; set; }
 
         /// <summary>
+        /// (Readonly)
         /// Id of the customer that owns the payment source
         /// </summary>
         [JsonProperty("parent_id")]
@@ -110,6 +74,13 @@ namespace Conekta.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// (Readonly)
+        /// Object's class. In this case "payment_source"
+        /// </summary>
+        [JsonProperty("object")]
+        public string Object { get; set; } = "payment_source";
+
+        /// <summary>
         /// Token id that will be used to create a payment source
         /// </summary>
         [JsonProperty("token_id")]
@@ -123,17 +94,11 @@ namespace Conekta.Models
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        /// <summary>
-        /// Object's class. In this case "payment_source"
-        /// </summary>
-        [JsonProperty("object")]
-        public string Object { get; set; } = "payment_source";
-
         public PaymentSource() { }
 
         public PaymentSource(PaymentSourceType type)
         {
-            Type = type.ToString().ToLower();
+            Type = type.ToString().ToSnakeCase();
         }
 
         /// <summary>
@@ -159,7 +124,7 @@ namespace Conekta.Models
 
             public Create(PaymentSourceType type)
             {
-                Type = type.ToString().ToLower();
+                Type = type.ToString().ToSnakeCase();
             }
         }
 

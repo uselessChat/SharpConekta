@@ -1,16 +1,10 @@
 ﻿using System;
+using Conekta.Enums;
+using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
 {
-    public enum DiscountLineType
-    {
-        Campaign,
-        Coupon,
-        Loyalty,
-        Sign
-    }
-
     /// <summary>
     /// Describes the discounts to be applied to the order
     /// </summary>
@@ -35,6 +29,18 @@ namespace Conekta.Models
         public string Code { get; set; }
 
         /// <summary>
+        /// (Readonly)
+        /// </summary>
+        [JsonProperty("object")]
+        public string Object { get; set; } = "discount_line";
+
+        /// <summary>
+        /// (Readonly)
+        /// </summary>
+        [JsonProperty("parent_id")]
+        public string ParentId { get; set; }
+
+        /// <summary>
         /// Allowed values: [:loyalty, :campaign, :coupon, :sign]
         /// Use constructor when needed
         /// </summary>
@@ -45,7 +51,7 @@ namespace Conekta.Models
 
         public DiscountLine(DiscountLineType type)
         {
-            Type = type.ToString().ToLower();
+            Type = type.ToString().ToSnakeCase();
         }
     }
 }

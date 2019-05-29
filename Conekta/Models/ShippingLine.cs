@@ -30,34 +30,44 @@ namespace Conekta.Models
         public string Carrier { get; set; }
 
         /// <summary>
-        /// Shipping method. (optional)
+        /// (Optional)
+        /// Shipping method.
         /// </summary>
         [JsonProperty("method")]
         public string Method { get; set; }
 
-        [JsonProperty("parent_id")]
-        public string OrderId { get; set; }
+        /// <summary>
+        /// (Readonly)
+        /// </summary>
+        [JsonProperty("object")]
+        public string Object { get; set; } = "shipping_line";
 
         /// <summary>
-        /// Tracking number provided by the carrier. (optional)
+        /// (Readonly)
+        /// </summary>
+        [JsonProperty("parent_id")]
+        public string ParentId { get; set; }
+
+        /// <summary>
+        /// (Optional)
+        /// Tracking number provided by the carrier.
         /// </summary>
         [JsonProperty("tracking_number")]
         public string Tracking { get; set; }
 
         /// <summary>
-        /// Hash containing additional information related to the shipping line. (optional)
+        /// (Optional)
+        /// Hash containing additional information related to the shipping line.
         /// </summary>
         [JsonProperty("metadata")]
         public object Metadata { get; set; }
-
-        [JsonProperty("object")]
-        public string Object { get; set; }
     }
 
     public class ShippingLine<T> : ShippingLine
     {
         /// <summary>
-        /// Hash containing additional information related to the shipping line. (optional)
+        /// (Optional)
+        /// Hash containing additional information related to the shipping line.
         /// </summary>
         [JsonProperty("metadata")]
         public new T Metadata { get; set; }

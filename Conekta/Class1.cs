@@ -4,6 +4,10 @@ namespace Conekta
 {
     public class Class1
     {
-        // TaxLine
+        // payment_method
+        public Class1()
+        {
+            
+        }
     }
 }

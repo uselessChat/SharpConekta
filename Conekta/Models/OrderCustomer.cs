@@ -12,25 +12,29 @@ namespace Conekta.Models
         public string CustomerId { get; set; }
 
         /// <summary>
-        /// It states if the customer is corporate or not, the default value is false. (optional)
+        /// (Optional)
+        /// It states if the customer is corporate or not, the default value is false. 
         /// </summary>
         [JsonProperty("corporate")]
         public bool Corporate { get; set; }
 
         /// <summary>
-        /// Customer's email. (optional if customer_id is sent)
+        /// (Optional if customer_id is sent)
+        /// Customer's email.
         /// </summary>
         [JsonProperty("email")]
         public string Email { get; set; }
 
         /// <summary>
-        /// Customer's name. (optional if customer_id is sent)
+        /// (Optional if customer_id is sent)
+        /// Customer's name.
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Customer's phone. (optional if customer_id is sent)
+        /// (Optional if customer_id is sent)
+        /// Customer's phone.
         /// </summary>
         [JsonProperty("phone")]
         public string Phone { get; set; }

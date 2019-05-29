@@ -1,21 +1,10 @@
 ﻿using System;
+using Conekta.Enums;
+using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
 {
-    public enum ChargeStatus
-    {
-        Pending_Payment
-    }
-
-    public enum PaymentRange
-    {
-        For3Months = 3,
-        For6Months = 6,
-        For9Months = 9,
-        For12Months = 12
-    }
-
     public class Charge
     {
         /// <summary>
@@ -74,6 +63,7 @@ namespace Conekta.Models
         public int? PaymentRange { get; set; }
 
         /// <summary>
+        /// (Optional)
         /// String containing additional information related to the order
         /// </summary>
         [JsonProperty("reference_id")]
@@ -86,6 +76,7 @@ namespace Conekta.Models
         public string Status { get; set; }
 
         /// <summary>
+        /// (Readonly)
         /// Object class. In this case, "charge"
         /// </summary>
         [JsonProperty("object")]
@@ -100,13 +91,13 @@ namespace Conekta.Models
 
         public Charge(ChargeStatus status)
         {
-            Status = ((int)status).ToString();
+            Status = status.ToString().ToSnakeCase();
         }
 
         public Charge(PaymentRange paymentRange, ChargeStatus status)
         {
             PaymentRange = (int)paymentRange;
-            Status = ((int)status).ToString();
+            Status = status.ToString().ToSnakeCase();
         }
 
         public class Create

@@ -10,6 +10,7 @@ namespace Conekta.Models
     public class Plan
     {
         /// <summary>
+        /// (Optional)
         /// Unique plan identifier
         /// </summary>
         [JsonProperty("id")]
@@ -37,6 +38,7 @@ namespace Conekta.Models
         public bool Deleted { get; set; }
 
         /// <summary>
+        /// (Optional)
         /// The frequency for the charge.
         /// For example, to charge a customer every 2 months, set the interval attribute to month and the frequency to 2.
         /// </summary>
@@ -44,6 +46,7 @@ namespace Conekta.Models
         public int? Frequency { get; set; }
 
         /// <summary>
+        /// (Optional)
         /// The interval for the charge.
         /// For example, to charge a customer every 2 months, set the interval attribute to month and the frequency to 2.
         /// </summary>
@@ -63,6 +66,13 @@ namespace Conekta.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// (Readonly)
+        /// Object class. For this object "plan"
+        /// </summary>
+        [JsonProperty("object")]
+        public string Object { get; set; } = "plan";
+
+        /// <summary>
         /// Number of charges that will be made before the subscription expires
         /// </summary>
         [JsonProperty("expiry_count")]
@@ -73,12 +83,6 @@ namespace Conekta.Models
         /// </summary>
         [JsonProperty("trial_period_days")]
         public int? TrialPeriodDays { get; set; }
-
-        /// <summary>
-        /// Object class. For this object "plan"
-        /// </summary>
-        [JsonProperty("object")]
-        public string Object { get; set; } = "plan";
 
         public class Update
         {

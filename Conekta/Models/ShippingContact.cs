@@ -23,6 +23,7 @@ namespace Conekta.Models
         public ShipppingAddress Address { get; set; }
 
         /// <summary>
+        /// (Optional)
         /// Adjacent streets to the shipping address. (optional)
         /// </summary>
         [JsonProperty("between_streets")]
@@ -35,6 +36,13 @@ namespace Conekta.Models
         public bool Default { get; set; }
 
         /// <summary>
+        /// (Readonly)
+        /// </summary>
+        [JsonProperty("object")]
+        public string Object { get; set; } = "shipping_contact";
+
+        /// <summary>
+        /// (Readonly)
         /// Customer || Order
         /// </summary>
         [JsonProperty("parent_id")]
@@ -47,12 +55,10 @@ namespace Conekta.Models
         public string Phone { get; set; }
 
         /// <summary>
-        /// Contact's name. (optional)
+        /// (Optional)
+        /// Contact's name.
         /// </summary>
         [JsonProperty("receiver")]
         public string Receiver { get; set; }
-
-        [JsonProperty("object")]
-        public string Object { get; set; }
     }
 }

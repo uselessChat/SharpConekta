@@ -1,17 +1,10 @@
 ﻿using System;
+using Conekta.Enums;
+using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
 {
-    public enum SubscriptionStatus
-    {
-        Active,
-        Canceled,
-        In_Trial,
-        Past_Due,
-        Paused
-    };
-
     /// <summary>
     /// Subscriptions bill your client a fixed amount on a recurring basis.
     /// You can change the plan of a subscription, pause, cancel and resume a subscription as you wish.
@@ -42,6 +35,12 @@ namespace Conekta.Models
         [JsonProperty("canceled_at")]
         public string CanceledAt { get; set; }
 
+        /// <summary>
+        /// (Optional)
+        /// Id of the card that will be used to process the subscription in case
+        /// it's different than the primary card.
+        /// The card must already be registered in the customer's cards.
+        /// </summary>
         [JsonProperty("card_id")]
         public string CardId { get; set; }
 
@@ -51,8 +50,19 @@ namespace Conekta.Models
         [JsonProperty("created_at")]
         public string CreatedAt { get; set; }
 
+        /// <summary>
+        /// (Optional)
+        /// Id of the customer that will own the subscription.
+        /// </summary>
         [JsonProperty("customer_id")]
         public string CustomerId { get; set; }
+
+        /// <summary>
+        /// (Readonly)
+        /// Object class. For this model, "subscription".
+        /// </summary>
+        [JsonProperty("object")]
+        public string Object { get; set; } = "subscription";
 
         /// <summary>
         /// Date of the subscription pause
@@ -89,21 +99,22 @@ namespace Conekta.Models
         [JsonProperty("trial_start")]
         public long? TrialStartAt { get; set; }
 
-        /// <summary>
-        /// Object class. For this model, "subscription".
-        /// </summary>
-        [JsonProperty("object")]
-        public string Object { get; set; } = "subscription";
-
         public Subscription() { }
 
         public Subscription(SubscriptionStatus status)
         {
-            Status = status.ToString().ToLower();
+            Status = status.ToString().ToSnakeCase();
         }
 
         public class Create
         {
+            /// <summary>
+            /// (Optional)
+            /// Id of the customer that will own the subscription.
+            /// </summary>
+            [JsonProperty("customer_id")]
+            public string CustomerId { get; set; }
+
             /// <summary>
             /// Id of the plan that will be used to create the subscriptio
             /// </summary>
@@ -111,6 +122,7 @@ namespace Conekta.Models
             public string PlanId { get; set; }
 
             /// <summary>
+            /// (Optional)
             /// Id of the card that will be used to process the subscription in case
             /// it's different than the primary card.
             /// The card must already be registered in the customer's cards.
