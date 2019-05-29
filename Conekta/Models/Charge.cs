@@ -1,6 +1,5 @@
 ﻿using System;
 using Conekta.Enums;
-using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
@@ -91,13 +90,13 @@ namespace Conekta.Models
 
         public Charge(ChargeStatus status)
         {
-            Status = status.ToString().ToSnakeCase();
+            Status = status.ToString().ToLower();
         }
 
         public Charge(PaymentRange paymentRange, ChargeStatus status)
         {
             PaymentRange = (int)paymentRange;
-            Status = status.ToString().ToSnakeCase();
+            Status = status.ToString().ToLower();
         }
 
         public class Create

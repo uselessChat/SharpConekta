@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using Conekta.Enums;
-using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
@@ -112,7 +111,7 @@ namespace Conekta.Models
 
         public Order(OrderPaymentStatus paymentStatus)
         {
-            PaymentStatus = paymentStatus.ToString().ToSnakeCase();
+            PaymentStatus = paymentStatus.ToString().ToLower();
         }
 
         public class Refund
@@ -138,7 +137,7 @@ namespace Conekta.Models
 
             public Refund(OrderRefundReason reason)
             {
-                Reason = reason.ToString().ToSnakeCase();
+                Reason = reason.ToString().ToLower();
             }
         }
     }

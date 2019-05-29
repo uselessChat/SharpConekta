@@ -1,6 +1,5 @@
 ﻿using System;
 using Conekta.Enums;
-using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
@@ -98,7 +97,7 @@ namespace Conekta.Models
 
         public PaymentSource(PaymentSourceType type)
         {
-            Type = type.ToString().ToSnakeCase();
+            Type = type.ToString().ToLower();
         }
 
         /// <summary>
@@ -124,7 +123,7 @@ namespace Conekta.Models
 
             public Create(PaymentSourceType type)
             {
-                Type = type.ToString().ToSnakeCase();
+                Type = type.ToString().ToLower();
             }
         }
 

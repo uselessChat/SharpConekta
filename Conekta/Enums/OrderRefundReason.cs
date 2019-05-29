@@ -6,10 +6,10 @@ namespace Conekta.Enums
 {
     public enum OrderRefundReason
     {
-        RequestedByClient,
-        CannotBeFulfilled,
-        DuplicatedTransaction,
-        SuspectedFraud,
+        Requested_By_Client,
+        Cannot_Be_Fulfilled,
+        Duplicated_Transaction,
+        Suspected_Fraud,
         Other
     }
 }

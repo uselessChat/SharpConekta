@@ -6,13 +6,13 @@ namespace Conekta.Enums
 {
     public enum OrderPaymentStatus
     {
-        ChargedBack,
+        Charged_Back,
         Declined,
         Expired,
         Paid,
-        PartiallyRefunded,
-        PendingPayment,
-        PreAuthorized,
+        Partially_Refunded,
+        Pending_Payment,
+        Pre_Authorized,
         Refunded,
         Voided
     }

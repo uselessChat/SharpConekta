@@ -1,6 +1,5 @@
 ﻿using System;
 using Conekta.Enums;
-using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
@@ -103,7 +102,7 @@ namespace Conekta.Models
 
         public Subscription(SubscriptionStatus status)
         {
-            Status = status.ToString().ToSnakeCase();
+            Status = status.ToString().ToLower();
         }
 
         public class Create

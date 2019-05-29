@@ -1,6 +1,5 @@
 ﻿using System;
 using Conekta.Enums;
-using Conekta.Extensions;
 using Newtonsoft.Json;
 
 namespace Conekta.Models
@@ -51,7 +50,7 @@ namespace Conekta.Models
 
         public DiscountLine(DiscountLineType type)
         {
-            Type = type.ToString().ToSnakeCase();
+            Type = type.ToString().ToLower();
         }
     }
 }

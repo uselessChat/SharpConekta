@@ -1,5 +1,4 @@
 ﻿using Conekta.Enums;
-using Conekta.Extensions;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -31,7 +30,7 @@ namespace Conekta.Models
 
         public PaymentMethod(PaymentMethodType type)
         {
-            Type = type.ToString().ToSnakeCase();
+            Type = type.ToString().ToLower();
         }
     }
 }

@@ -8,8 +8,8 @@ namespace Conekta.Enums
     {
         Active,
         Canceled,
-        InTrial,
-        PastDue,
+        In_Trial,
+        Past_Due,
         Paused
     };
 }
