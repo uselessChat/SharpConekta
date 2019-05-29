@@ -50,7 +50,7 @@ namespace Conekta.Models
 
         public DiscountLine(DiscountLineType type)
         {
-            Type = type.ToString().ToLower();
+            Type = type.ToString();
         }
     }
 }

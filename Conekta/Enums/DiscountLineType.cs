@@ -6,9 +6,9 @@ namespace Conekta.Enums
 {
     public enum DiscountLineType
     {
-        Campaign,
-        Coupon,
-        Loyalty,
-        Sign
+        campaign,
+        coupon,
+        loyalty,
+        sign
     }
 }

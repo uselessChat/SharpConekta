@@ -97,7 +97,7 @@ namespace Conekta.Models
 
         public PaymentSource(PaymentSourceType type)
         {
-            Type = type.ToString().ToLower();
+            Type = type.ToString();
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Conekta.Models
 
             public Create(PaymentSourceType type)
             {
-                Type = type.ToString().ToLower();
+                Type = type.ToString();
             }
         }
 

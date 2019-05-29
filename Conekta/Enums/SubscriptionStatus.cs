@@ -6,10 +6,10 @@ namespace Conekta.Enums
 {
     public enum SubscriptionStatus
     {
-        Active,
-        Canceled,
-        In_Trial,
-        Past_Due,
-        Paused
+        active,
+        canceled,
+        in_trial,
+        past_due,
+        paused
     };
 }

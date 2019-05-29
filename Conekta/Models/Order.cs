@@ -111,7 +111,7 @@ namespace Conekta.Models
 
         public Order(OrderPaymentStatus paymentStatus)
         {
-            PaymentStatus = paymentStatus.ToString().ToLower();
+            PaymentStatus = paymentStatus.ToString();
         }
 
         public class Refund
@@ -137,7 +137,7 @@ namespace Conekta.Models
 
             public Refund(OrderRefundReason reason)
             {
-                Reason = reason.ToString().ToLower();
+                Reason = reason.ToString();
             }
         }
     }

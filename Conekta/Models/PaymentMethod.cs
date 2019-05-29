@@ -30,7 +30,7 @@ namespace Conekta.Models
 
         public PaymentMethod(PaymentMethodType type)
         {
-            Type = type.ToString().ToLower();
+            Type = type.ToString();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Conekta.Enums
 {
     public enum PaymentMethodType
     {
-        Oxxo,
-        Oxxo_Cash
+        oxxo,
+        oxxo_cash
     }
 }

@@ -90,13 +90,13 @@ namespace Conekta.Models
 
         public Charge(ChargeStatus status)
         {
-            Status = status.ToString().ToLower();
+            Status = status.ToString();
         }
 
         public Charge(PaymentRange paymentRange, ChargeStatus status)
         {
             PaymentRange = (int)paymentRange;
-            Status = status.ToString().ToLower();
+            Status = status.ToString();
         }
 
         public class Create

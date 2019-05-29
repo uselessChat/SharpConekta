@@ -102,7 +102,7 @@ namespace Conekta.Models
 
         public Subscription(SubscriptionStatus status)
         {
-            Status = status.ToString().ToLower();
+            Status = status.ToString();
         }
 
         public class Create

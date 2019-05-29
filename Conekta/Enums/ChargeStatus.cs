@@ -6,6 +6,6 @@ namespace Conekta.Enums
 {
     public enum ChargeStatus
     {
-        Pending_Payment
+        pending_payment
     }
 }

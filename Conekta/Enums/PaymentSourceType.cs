@@ -6,6 +6,6 @@ namespace Conekta.Enums
 {
     public enum PaymentSourceType
     {
-        Card
+        card
     }
 }
